@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Saver & Sharer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        p { font-size: 1.1em; line-height: 1.6; margin: 15px 0; }
+        a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.2s;
+        }
+        a:hover { transform: scale(1.05); }
+        code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📹 Video Saver & Sharer</h1>
+        <p>A family-friendly app to upload, save, and share your videos.</p>
+        <p><strong>This is a Python Flask app</strong> — it needs a real server to run (GitHub Pages only hosts static files).</p>
+        <p>To use it:</p>
+        <p>1. Clone the repo<br>
+           <code>git clone https://github.com/Glitchplays1/video-saver-sharer.git</code></p>
+        <p>2. Install & run<br>
+           <code>pip install -r requirements.txt</code><br>
+           <code>python app.py</code></p>
+        <p>3. Open <code>http://localhost:5000</code></p>
+        <a href="https://github.com/Glitchplays1/video-saver-sharer">View on GitHub</a>
+        <a href="https://github.com/Glitchplays1/video-saver-sharer/archive/refs/heads/main.zip">Download ZIP</a>
+    </div>
+</body>
+</html>
