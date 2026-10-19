@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Video Saver & Sharer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>📹 My Video Saver & Sharer</h1>
+        <p>Save your favorite videos and share them safely with family and friends!</p>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="messages">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <section class="upload-section">
+            <h2>Upload a New Video</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Video title (optional)" maxlength="100">
+                <input type="file" name="video" accept="video/*" required>
+                <button type="submit">Save Video</button>
+            </form>
+            <p class="note">Max size: 200MB. Formats: MP4, WebM, OGG, MOV, AVI</p>
+        </section>
+
+        <section class="gallery">
+            <h2>My Saved Videos ({{ videos|length }})</h2>
+            {% if videos %}
+                <div class="video-grid">
+                    {% for video in videos %}
+                        <div class="video-card">
+                            <video controls preload="metadata">
+                                <source src="/video/{{ video.filename }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="info">
+                                <h3>{{ video.title }}</h3>
+                                <div class="actions">
+                                    <a href="/share/{{ video.filename }}" class="share-btn" target="_blank">Share</a>
+                                    <form action="/delete/{{ video.filename }}" method="post" style="display:inline;">
+                                        <button type="submit" class="delete-btn" onclick="return confirm('Delete this video?')">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="empty">No videos yet. Upload your first one above!</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>Family-friendly video library. Keep it fun and safe! 🌟</p>
+    </footer>
+</body>
+</html>

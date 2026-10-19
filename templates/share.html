@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Shared Video</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>📹 Shared Video</h1>
+        <p>Someone shared this video with you!</p>
+    </header>
+
+    <main class="share-main">
+        <h2>{{ title }}</h2>
+        <div class="video-player">
+            <video controls autoplay preload="metadata" style="width:100%; max-width:800px;">
+                <source src="/video/{{ filename }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p><a href="/" class="back-btn">← Back to Library</a></p>
+        <p class="share-note">Copy this page link to share with others!</p>
+    </main>
+
+    <footer>
+        <p>Family-friendly video sharing 🌟</p>
+    </footer>
+</body>
+</html>
