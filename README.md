@@ -10,6 +10,18 @@ A simple, family-friendly website to upload, save, and share your videos!
 - Delete videos you no longer need
 - Beautiful, colorful, kid-friendly design
 
+## Deploy on Railway (Recommended)
+
+1. Go to [Railway](https://railway.app) and sign in (GitHub login is easiest).
+2. Click **New Project** → **Deploy from GitHub repo**.
+3. Select this repository: `Glitchplays1/video-saver-sharer`.
+4. Railway will automatically detect the Python app and the `Procfile`.
+5. Click **Deploy**. After a minute or two it will give you a public URL (like `something.up.railway.app`).
+6. Open that URL — your video saver is live!
+
+### Important note about storage
+On Railway’s free/hobby plan the filesystem is **temporary**. Uploaded videos will disappear when the app restarts or redeploys. For permanent storage you would need to connect a volume or use cloud storage (S3, etc.). For personal/testing use it works fine.
+
 ## How to Run Locally
 
 1. Make sure you have Python 3 installed.
@@ -30,30 +42,15 @@ A simple, family-friendly website to upload, save, and share your videos!
 
 ## GitHub Pages
 
-GitHub Pages only hosts **static** files. This is a dynamic Flask app that needs a Python server, so visiting the GitHub Pages URL will only show a landing page with instructions (once Pages is enabled).
-
-To enable the landing page:
-1. Go to the repo **Settings** → **Pages**
-2. Under **Source**, select **Deploy from a branch**
-3. Choose **main** branch and **/ (root)** folder
-4. Save — it will be available at `https://glitchplays1.github.io/video-saver-sharer/` after a minute or two
-
-## Free Hosting Options (for the real app)
-
-To run the full app online you need a service that supports Python:
-- [Render](https://render.com) (free tier available)
-- [Railway](https://railway.app)
-- [PythonAnywhere](https://www.pythonanywhere.com)
-- [Replit](https://replit.com)
+GitHub Pages only hosts static files. The real app needs Railway (or similar). A landing page is available if you enable Pages.
 
 ## Notes
-- Videos are stored in the `uploads/` folder (local only).
-- Titles are saved in small `.title` files next to each video.
+- Videos are stored in the `uploads/` folder.
 - Keep content family-friendly! 🌟
 
 ## Files
 - `app.py` — The Flask web server
+- `Procfile` — Tells Railway how to start the app
 - `templates/` — HTML pages
 - `static/css/style.css` — Styles
-- `index.html` — GitHub Pages landing page
 - `requirements.txt` — Python packages needed
